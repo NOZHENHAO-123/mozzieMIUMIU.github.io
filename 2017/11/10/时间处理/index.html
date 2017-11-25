@@ -1,0 +1,102 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Date日期对象 · miumiu是一只猫</title><meta name="description" content="Date日期对象 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="miumiu是一只猫"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about" target="_self" class="nav-list-link">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Date日期对象</h1><div class="post-info">Nov 10, 2017</div><div class="post-content"><blockquote>
+<p>好记性不如烂笔头<br>获取当前系统时间并以字符串的方式传给后台，发现了一个toLocaleString方法<br>之前没有注意过，今天又翻W3上看了看。这样就很棒棒哦。</p>
+</blockquote>
+<p>直接使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let atBefore = new Date();</span><br><span class="line">console.log(atBefore.toLocaleDateString()) // 2017/11/17</span><br></pre></td></tr></table></figure></p>
+<h3 id="日期比较"><a href="#日期比较" class="headerlink" title="日期比较"></a>日期比较</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let atBefore = new Date(&apos;2017,11,17 18:50:20&apos;);</span><br><span class="line">//let atBefore = new Date(2017,11,17); 这种写法月份要已加过1的 实则是&apos;2017,12,17&apos;</span><br><span class="line">let today = new Date();</span><br><span class="line"></span><br><span class="line">if (atBefore&gt;=today) &#123;</span><br><span class="line">    console.log(&quot;比当前时间时间大，或者相等&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else &#123;</span><br><span class="line">    console.log(&quot;比当前时间小&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="显示当前时间（带有一个判断数值是否小于-10-的函数）"><a href="#显示当前时间（带有一个判断数值是否小于-10-的函数）" class="headerlink" title="显示当前时间（带有一个判断数值是否小于 10 的函数）"></a>显示当前时间（带有一个判断数值是否小于 10 的函数）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function checkTime(i)&#123;</span><br><span class="line">if (i&lt;10) </span><br><span class="line">  &#123;i=&quot;0&quot; + i&#125;</span><br><span class="line">  return i</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="常用的日期方法"><a href="#常用的日期方法" class="headerlink" title="常用的日期方法"></a>常用的日期方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getDate()</td>
+<td style="text-align:center">返回月份的某一天</td>
+</tr>
+<tr>
+<td>getDay()</td>
+<td style="text-align:center">返回表示星期的某一天的数字</td>
+</tr>
+<tr>
+<td>getMonth()</td>
+<td style="text-align:center">返回表示月份的数字</td>
+</tr>
+<tr>
+<td>getFullYear</td>
+<td style="text-align:center">返回一个表示年份的 4 位数字</td>
+</tr>
+<tr>
+<td>getHours()</td>
+<td style="text-align:center">返回时间的小时字段</td>
+</tr>
+<tr>
+<td>getMinutes()</td>
+<td style="text-align:center">返回时间的分钟字段</td>
+</tr>
+<tr>
+<td>getSeconds()</td>
+<td style="text-align:center">返回时间的秒</td>
+</tr>
+<tr>
+<td>getMilliseconds</td>
+<td style="text-align:center">返回时间的毫秒</td>
+</tr>
+<tr>
+<td>getTime</td>
+<td style="text-align:center">返回距 1970 年 1 月 1 日之间的毫秒数</td>
+</tr>
+<tr>
+<td>setDate()</td>
+<td style="text-align:center">设置一个月的某一天</td>
+</tr>
+<tr>
+<td>setMonth()</td>
+<td style="text-align:center">设置一个月的某一天</td>
+</tr>
+<tr>
+<td>setDate()</td>
+<td style="text-align:center">设置月份</td>
+</tr>
+<tr>
+<td>setHours()</td>
+<td style="text-align:center">设置指定的时间的小时字段</td>
+</tr>
+<tr>
+<td>setSeconds()</td>
+<td style="text-align:center">调整过的日期的毫秒</td>
+</tr>
+<tr>
+<td>setMilliseconds</td>
+<td style="text-align:center">设置指定时间的毫秒字段</td>
+</tr>
+<tr>
+<td>setTime()</td>
+<td style="text-align:center">以毫秒设置 Date 对象</td>
+</tr>
+<tr>
+<td>toString()</td>
+<td style="text-align:center">对象转换为字符串，并返回结果</td>
+</tr>
+<tr>
+<td>toLocaleString()</td>
+<td style="text-align:center">本地时间把 Date 对象转换为字符串</td>
+</tr>
+<tr>
+<td>toLocaleTimeString()</td>
+<td style="text-align:center">本地时间把 Date 对象转换为字符串</td>
+</tr>
+<tr>
+<td>toLocaleString()</td>
+<td style="text-align:center">本地时间把 Date 对象的时间部分转换为字符串，并返回结果</td>
+</tr>
+<tr>
+<td>toLocaleDateString</td>
+<td style="text-align:center">本地时间把 Date 对象的日期部分转换为字符串，并返回结果</td>
+</tr>
+</tbody>
+</table>
+<p>w3school：<a href="http://www.w3school.com.cn/jsref/jsref_obj_date.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/jsref/jsref_obj_date.asp</a></p>
+</div></article></div></main><footer><div class="paginator"><a href="/2017/11/14/webpack/" class="prev">PREV</a><a href="/2017/11/10/git/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2017 <a href="http://yoursite.com">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
